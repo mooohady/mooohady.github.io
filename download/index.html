@@ -1,0 +1,24 @@
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Download Buzzie</title><meta name="description" content="Get Buzzie on iPhone or Android. Playmates, mates and adoption for your dog or cat in Egypt."><meta name="robots" content="noindex"><link rel="canonical" href="https://mooohady.github.io/download/"><meta property="og:title" content="Download Buzzie"><meta property="og:description" content="Your pet's favorite app. On iPhone and Android in Egypt."><meta property="og:image" content="https://mooohady.github.io/assets/apple-touch-icon.png"><link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><meta name="theme-color" content="#5B263F"><link rel="stylesheet" href="/assets/site.css"><style>.chooser .actions{flex-direction:column;align-items:stretch;margin:2rem auto 0;max-width:20rem}.chooser .button{display:flex;flex-direction:column;align-items:center;line-height:1.3;padding:.85rem 1.25rem}.chooser .button small{font-weight:600;opacity:.75}.chooser .note{color:var(--on-canvas-muted);font-size:.9rem;margin:1.5rem auto 0}</style><script>
+// Sends a phone straight to its store, tagged with where the visitor came from (?s=tiktok, ?s=fb, ...).
+// Desktops, and anyone opening ?stay=1, see both buttons.
+(function () {
+  var q = new URLSearchParams(location.search);
+  var src = (q.get('s') || 'web').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30) || 'web';
+  var ios = 'https://apps.apple.com/eg/app/apple-store/id6828567207?pt=129705444&ct=' + src + '&mt=8';
+  var android = 'https://play.google.com/store/apps/details?id=com.buzzie.app&referrer=' +
+    encodeURIComponent('utm_source=' + src + '&utm_medium=download_page&utm_campaign=launch');
+  window.BUZZIE_LINKS = { ios: ios, android: android };
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  if (q.get('stay') === '1') return;
+  if (isIOS) location.replace(ios);
+  else if (isAndroid) location.replace(android);
+})();
+</script></head><body><main class="chooser" id="content"><section class="hero"><img class="mark" src="/assets/brand-mark.png" alt="" width="88" height="81"><h1>Buzzie</h1><p class="lede">Your pet's favorite app<br><span lang="ar" dir="rtl">التطبيق المفضل لحيوانك</span></p><div class="actions"><a class="button" id="ios" href="https://apps.apple.com/eg/app/apple-store/id6828567207?pt=129705444&amp;ct=web&amp;mt=8">App Store<small>iPhone</small></a><a class="button secondary" id="android" href="https://play.google.com/store/apps/details?id=com.buzzie.app&amp;referrer=utm_source%3Dweb%26utm_medium%3Ddownload_page%26utm_campaign%3Dlaunch">Google Play<small>Android</small></a></div><p class="note">Egypt · 18+</p></section></main><script>
+// Buttons carry the same source tag as the automatic redirect.
+if (window.BUZZIE_LINKS) {
+  document.getElementById('ios').href = window.BUZZIE_LINKS.ios;
+  document.getElementById('android').href = window.BUZZIE_LINKS.android;
+}
+</script></body></html>
